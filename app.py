@@ -9,7 +9,7 @@ st.title("🍎 Klasifikasi Buah UAS")
 
 # Fungsi mengecek keberadaan file
 def check_files():
-    files = ['mobilenetv2_fruits360_optimized.h5', 'klasifikasi class name.json.json']
+    files = ['mobilenetv2_fruits360_optimized.h5', 'klasifikasi class name.json']
     for f in files:
         if not os.path.exists(f):
             st.error(f"File TIDAK DITEMUKAN: {f}")
@@ -24,7 +24,7 @@ if check_files():
 
         @st.cache_data
         def load_labels():
-            with open('klasifikasi class name.json.json', 'r') as f:
+            with open('klasifikasi class name.json', 'r') as f:
                 return json.load(f)
 
         model = load_model()
@@ -34,3 +34,4 @@ if check_files():
         st.error(f"❌ Error saat memuat model: {e}")
 else:
     st.info("Pastikan nama file di GitHub sudah benar.")
+
